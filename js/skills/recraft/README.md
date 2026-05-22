@@ -1,4 +1,25 @@
-# Recraft API Skill for RunAPI
+<p align="center">
+  <a href="https://github.com/runapi-ai/recraft">
+    <h3 align="center">Recraft API Skill for RunAPI</h3>
+  </a>
+</p>
+
+<p align="center">
+  Install this agent skill, inspect Recraft fields, then run jobs through the RunAPI CLI.
+</p>
+
+<p align="center">
+  <a href="https://runapi.ai/models/recraft"><strong>Model Reference</strong></a> · <a href="https://github.com/runapi-ai/cli"><strong>CLI</strong></a> · <a href="https://github.com/runapi-ai/recraft-sdk"><strong>SDK</strong></a>
+</p>
+
+<div align="center">
+
+[![skills.sh](https://www.skills.sh/b/runapi-ai/recraft)](https://www.skills.sh/runapi-ai/recraft/recraft)
+[![ClawHub](https://img.shields.io/badge/ClawHub-runapi--recraft-111827)](https://clawhub.ai/runapi-ai/runapi-recraft)
+[![License](https://img.shields.io/github/license/runapi-ai/recraft)](https://github.com/runapi-ai/recraft/blob/main/LICENSE)
+
+</div>
+<br/>
 
 Upscale images and remove backgrounds with Recraft crisp upscale and background removal. This skill helps Claude Code, Codex, Gemini CLI, Cursor, and 50+ agents integrate Recraft through RunAPI.
 
@@ -10,7 +31,18 @@ The canonical agent file is `skills/recraft/SKILL.md`.
 npx skills add runapi-ai/recraft -g
 ```
 
-Or manually: clone this repo and copy `skills/recraft/` into your agent's skills directory.
+Or paste this prompt to your AI agent:
+
+```text
+Install the recraft skill for me:
+
+1. Clone https://github.com/runapi-ai/recraft
+2. Copy the skills/recraft/ directory into your
+   user-level skills directory (e.g. ~/.claude/skills/
+   for Claude Code, ~/.codex/skills/ for Codex).
+3. Verify that SKILL.md is present.
+4. Confirm the install path when done.
+```
 
 ## Quick example
 
