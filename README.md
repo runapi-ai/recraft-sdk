@@ -1,4 +1,24 @@
-# Recraft API SDK for RunAPI
+<p align="center">
+  <a href="https://runapi.ai"><img src="https://runapi.ai/icon.svg" height="56" alt="RunAPI"></a>
+</p>
+
+<h3 align="center">
+  <a href="https://github.com/runapi-ai/recraft-sdk">Recraft API SDK for RunAPI</a>
+</h3>
+
+<p align="center">
+  Recraft API SDKs for JavaScript, Ruby, and Go on RunAPI.
+</p>
+
+<div align="center">
+
+[![npm](https://img.shields.io/npm/v/@runapi.ai/recraft)](https://www.npmjs.com/package/@runapi.ai/recraft)
+[![RubyGems](https://img.shields.io/gem/v/runapi-recraft)](https://rubygems.org/gems/runapi-recraft)
+[![Go Reference](https://pkg.go.dev/badge/github.com/runapi-ai/recraft-sdk/go.svg)](https://pkg.go.dev/github.com/runapi-ai/recraft-sdk/go)
+[![License](https://img.shields.io/github/license/runapi-ai/recraft-sdk)](https://github.com/runapi-ai/recraft-sdk/blob/main/LICENSE)
+
+</div>
+<br/>
 
 The recraft api SDK packages JavaScript, Ruby, and Go clients for Recraft on RunAPI. Use this recraft api SDK for text-to-image, image-to-image, edit, and creative production workflows that need typed installs, JSON request bodies, task polling, and consistent RunAPI errors across services.
 
