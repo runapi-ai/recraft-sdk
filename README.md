@@ -20,7 +20,7 @@
 </div>
 <br/>
 
-The recraft api SDK packages JavaScript, Ruby, and Go clients for Recraft on RunAPI. Use this recraft api SDK for text-to-image, image-to-image, edit, and creative production workflows that need typed installs, JSON request bodies, task polling, and consistent RunAPI errors across services.
+The recraft api SDK packages JavaScript, Ruby, and Go clients for Recraft on RunAPI. Use this recraft api SDK for text-to-image, image editing, upscales, and creative production workflows that need typed installs, JSON request bodies, task polling, and consistent RunAPI errors across services.
 
 Recraft belongs to the Recraft catalog on RunAPI. The public model page is https://runapi.ai/models/recraft; variant pages below carry pricing, rate-limit, and commercial-usage details. The public `recraft-sdk` repository groups the JavaScript, Ruby, and Go packages for this model.
 

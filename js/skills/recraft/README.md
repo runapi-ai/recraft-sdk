@@ -52,7 +52,7 @@ import { RecraftClient } from '@runapi.ai/recraft';
 const client = new RecraftClient();
 const result = await client.upscaleImage.run({
   model: 'recraft-crisp-upscale',
-  image_url: 'https://cdn.example.com/photo.jpg',
+  source_image_url: 'https://cdn.runapi.ai/public/samples/image.jpg',
 });
 ```
 

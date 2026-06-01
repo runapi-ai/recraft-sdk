@@ -17,14 +17,14 @@ describe('UpscaleImage', () => {
     const upscaleImage = new UpscaleImage(mockHttp);
     const result = await upscaleImage.create({
       model: 'recraft-crisp-upscale',
-      image_url: 'https://example.com/input.png',
+      source_image_url: 'https://cdn.runapi.ai/public/samples/input.png',
       callback_url: 'https://example.com/callback',
     });
 
     expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/recraft/upscale_image', {
       body: {
         model: 'recraft-crisp-upscale',
-        image_url: 'https://example.com/input.png',
+        source_image_url: 'https://cdn.runapi.ai/public/samples/input.png',
         callback_url: 'https://example.com/callback',
       },
     });
@@ -34,7 +34,7 @@ describe('UpscaleImage', () => {
   it('validates required create params', async () => {
     const upscaleImage = new UpscaleImage(mockHttp);
 
-    await expect(upscaleImage.create({ image_url: 'https://example.com/input.png' } as any)).rejects.toThrow(ValidationError);
+    await expect(upscaleImage.create({ source_image_url: 'https://cdn.runapi.ai/public/samples/input.png' } as any)).rejects.toThrow(ValidationError);
     await expect(upscaleImage.create({ model: 'recraft-crisp-upscale' } as any)).rejects.toThrow(ValidationError);
     expect(mockHttp.request).not.toHaveBeenCalled();
   });

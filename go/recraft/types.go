@@ -28,13 +28,13 @@ type ImageTaskResponse struct {
 }
 
 type UpscaleImageParams struct {
-	Model       UpscaleImageModel `json:"model" help:"required; must be recraft-crisp-upscale"`
-	ImageURL    string            `json:"image_url" help:"required; source image URL"`
+	Model       UpscaleImageModel `json:"model" help:"required; model slug"`
+	ImageURL    string            `json:"source_image_url" help:"required; source image URL"`
 	CallbackURL string            `json:"callback_url,omitempty" help:"optional; webhook URL"`
 }
 
 type RemoveBackgroundParams struct {
-	Model       RemoveBackgroundModel `json:"model" help:"required; must be recraft-remove-background"`
-	ImageURL    string                `json:"image_url" help:"required; source image URL"`
+	Model       RemoveBackgroundModel `json:"model" help:"required; model slug"`
+	ImageURL    string                `json:"source_image_url" help:"required; source image URL"`
 	CallbackURL string                `json:"callback_url,omitempty" help:"optional; webhook URL"`
 }

@@ -43,8 +43,8 @@ func (r *UpscaleImage) Create(ctx context.Context, params UpscaleImageParams, op
 	if body["model"] == nil {
 		return nil, core.NewError(core.ErrValidation, "model is required", 422, "", nil, nil)
 	}
-	if body["image_url"] == nil {
-		return nil, core.NewError(core.ErrValidation, "image_url is required", 422, "", nil, nil)
+	if body["source_image_url"] == nil {
+		return nil, core.NewError(core.ErrValidation, "source_image_url is required", 422, "", nil, nil)
 	}
 	requestOptions, _ := option.ResolveRequestOptions(opts...)
 	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, upscaleImagePath, body, requestOptions)
@@ -65,8 +65,8 @@ func (r *RemoveBackground) Create(ctx context.Context, params RemoveBackgroundPa
 	if body["model"] == nil {
 		return nil, core.NewError(core.ErrValidation, "model is required", 422, "", nil, nil)
 	}
-	if body["image_url"] == nil {
-		return nil, core.NewError(core.ErrValidation, "image_url is required", 422, "", nil, nil)
+	if body["source_image_url"] == nil {
+		return nil, core.NewError(core.ErrValidation, "source_image_url is required", 422, "", nil, nil)
 	}
 	requestOptions, _ := option.ResolveRequestOptions(opts...)
 	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, removeBackgroundPath, body, requestOptions)

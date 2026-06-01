@@ -5,13 +5,13 @@ export type RecraftRemoveBackgroundModel = 'recraft-remove-background';
 
 export interface UpscaleImageParams {
   model: RecraftUpscaleImageModel;
-  image_url: string;
+  source_image_url: string;
   callback_url?: string;
 }
 
 export interface RemoveBackgroundParams {
   model: RecraftRemoveBackgroundModel;
-  image_url: string;
+  source_image_url: string;
   callback_url?: string;
 }
 

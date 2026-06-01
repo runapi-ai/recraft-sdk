@@ -34,7 +34,7 @@ module RunApi
 
         def validate_params!(params)
           raise Core::ValidationError, "model is required" unless param(params, :model)
-          raise Core::ValidationError, "image_url is required" unless param(params, :image_url)
+          raise Core::ValidationError, "source_image_url is required" unless param(params, :source_image_url)
 
           model = param(params, :model)
           unless Types::UPSCALE_IMAGE_MODELS.include?(model)

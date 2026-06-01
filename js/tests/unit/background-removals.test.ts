@@ -17,13 +17,13 @@ describe('RemoveBackground', () => {
     const removals = new RemoveBackground(mockHttp);
     const result = await removals.create({
       model: 'recraft-remove-background',
-      image_url: 'https://example.com/input.webp',
+      source_image_url: 'https://cdn.runapi.ai/public/samples/input.webp',
     });
 
     expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/recraft/remove_background', {
       body: {
         model: 'recraft-remove-background',
-        image_url: 'https://example.com/input.webp',
+        source_image_url: 'https://cdn.runapi.ai/public/samples/input.webp',
       },
     });
     expect(result).toEqual(mockResponse);
@@ -32,7 +32,7 @@ describe('RemoveBackground', () => {
   it('validates required create params', async () => {
     const removals = new RemoveBackground(mockHttp);
 
-    await expect(removals.create({ image_url: 'https://example.com/input.webp' } as any)).rejects.toThrow(ValidationError);
+    await expect(removals.create({ source_image_url: 'https://cdn.runapi.ai/public/samples/input.webp' } as any)).rejects.toThrow(ValidationError);
     await expect(removals.create({ model: 'recraft-remove-background' } as any)).rejects.toThrow(ValidationError);
     expect(mockHttp.request).not.toHaveBeenCalled();
   });

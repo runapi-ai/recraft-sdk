@@ -1,6 +1,6 @@
 # Recraft API Ruby SDK for RunAPI
 
-The recraft api Ruby SDK is the language-specific package for Recraft on RunAPI. Use this recraft api package for text-to-image, image-to-image, edit, and creative production flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in Ruby.
+The recraft api Ruby SDK is the language-specific package for Recraft on RunAPI. Use this recraft api package for text-to-image, image editing, and creative production flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in Ruby.
 
 This recraft api README is the Ruby package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
 

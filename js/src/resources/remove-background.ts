@@ -20,7 +20,7 @@ export class RemoveBackground {
   async create(params: RemoveBackgroundParams, options?: RequestOptions): Promise<TaskCreateResponse> {
     const body = compactParams(params);
     if (!body.model) throw new ValidationError('model is required');
-    if (!body.image_url) throw new ValidationError('image_url is required');
+    if (!body.source_image_url) throw new ValidationError('source_image_url is required');
 
     return this.http.request<TaskCreateResponse>('POST', ENDPOINT, {
       body,

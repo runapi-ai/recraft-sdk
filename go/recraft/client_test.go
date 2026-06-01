@@ -28,7 +28,7 @@ func TestUpscaleImageCreate(t *testing.T) {
 	client := NewClientWithHTTP(stub)
 	_, err := client.UpscaleImage.Create(context.Background(), UpscaleImageParams{
 		Model:    ModelUpscale,
-		ImageURL: "https://example.com/input.png",
+		ImageURL: "https://cdn.runapi.ai/public/samples/input.png",
 	})
 	if err != nil {
 		t.Fatal(err)
@@ -40,19 +40,19 @@ func TestUpscaleImageCreate(t *testing.T) {
 	if body["model"] != "recraft-crisp-upscale" {
 		t.Fatalf("unexpected model: %v", body["model"])
 	}
-	if body["image_url"] != "https://example.com/input.png" {
-		t.Fatalf("unexpected image_url: %v", body["image_url"])
+	if body["source_image_url"] != "https://cdn.runapi.ai/public/samples/input.png" {
+		t.Fatalf("unexpected source_image_url: %v", body["source_image_url"])
 	}
 }
 
 func TestUpscaleImageCreateValidatesRequiredParams(t *testing.T) {
 	client := NewClientWithHTTP(&stubHTTPClient{})
 
-	if _, err := client.UpscaleImage.Create(context.Background(), UpscaleImageParams{ImageURL: "https://example.com/input.png"}); !core.IsValidation(err) {
+	if _, err := client.UpscaleImage.Create(context.Background(), UpscaleImageParams{ImageURL: "https://cdn.runapi.ai/public/samples/input.png"}); !core.IsValidation(err) {
 		t.Fatalf("expected validation error for missing model, got %v", err)
 	}
 	if _, err := client.UpscaleImage.Create(context.Background(), UpscaleImageParams{Model: ModelUpscale}); !core.IsValidation(err) {
-		t.Fatalf("expected validation error for missing image_url, got %v", err)
+		t.Fatalf("expected validation error for missing source_image_url, got %v", err)
 	}
 }
 
@@ -61,7 +61,7 @@ func TestRemoveBackgroundCreate(t *testing.T) {
 	client := NewClientWithHTTP(stub)
 	_, err := client.RemoveBackground.Create(context.Background(), RemoveBackgroundParams{
 		Model:    ModelBackgroundRemoval,
-		ImageURL: "https://example.com/input.webp",
+		ImageURL: "https://cdn.runapi.ai/public/samples/input.webp",
 	})
 	if err != nil {
 		t.Fatal(err)
@@ -74,11 +74,11 @@ func TestRemoveBackgroundCreate(t *testing.T) {
 func TestRemoveBackgroundCreateValidatesRequiredParams(t *testing.T) {
 	client := NewClientWithHTTP(&stubHTTPClient{})
 
-	if _, err := client.RemoveBackground.Create(context.Background(), RemoveBackgroundParams{ImageURL: "https://example.com/input.webp"}); !core.IsValidation(err) {
+	if _, err := client.RemoveBackground.Create(context.Background(), RemoveBackgroundParams{ImageURL: "https://cdn.runapi.ai/public/samples/input.webp"}); !core.IsValidation(err) {
 		t.Fatalf("expected validation error for missing model, got %v", err)
 	}
 	if _, err := client.RemoveBackground.Create(context.Background(), RemoveBackgroundParams{Model: ModelBackgroundRemoval}); !core.IsValidation(err) {
-		t.Fatalf("expected validation error for missing image_url, got %v", err)
+		t.Fatalf("expected validation error for missing source_image_url, got %v", err)
 	}
 }
 
