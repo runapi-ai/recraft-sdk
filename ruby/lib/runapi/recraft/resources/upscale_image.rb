@@ -3,6 +3,8 @@
 module RunApi
   module Recraft
     module Resources
+      # AI-powered image upscaling resource.
+      # Enhance image resolution while preserving detail.
       class UpscaleImage
         include RunApi::Core::ResourceHelpers
 

@@ -2,14 +2,30 @@
 
 module RunApi
   module Recraft
-    class Client
-      attr_reader :upscale_image, :remove_background
+    # Recraft image post-processing API client.
+    #
+    # Provides AI-powered image upscaling and background removal.
+    #
+    # @example
+    #   client = RunApi::Recraft::Client.new(api_key: "your-api-key")
+    #
+    #   upscaled = client.upscale_image.run(
+    #     model: "recraft-crisp-upscale",
+    #     source_image_url: "https://example.com/photo.jpg"
+    #   )
+    #
+    #   cutout = client.remove_background.run(
+    #     model: "recraft-remove-background",
+    #     source_image_url: "https://example.com/photo.jpg"
+    #   )
+    class Client < RunApi::Core::Client
+      # @return [Resources::UpscaleImage] AI-powered image upscaling operations.
+      attr_reader :upscale_image
+      # @return [Resources::RemoveBackground] Background removal operations.
+      attr_reader :remove_background
 
       def initialize(api_key: nil, **options)
-        @api_key = Core::Auth.resolve_api_key(api_key)
-
-        client_options = Core::ClientOptions.new(api_key: @api_key, **options)
-        http = client_options.http_client || Core::HttpClient.new(client_options)
+        super
         @upscale_image = Resources::UpscaleImage.new(http)
         @remove_background = Resources::RemoveBackground.new(http)
       end

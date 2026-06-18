@@ -3,6 +3,8 @@
 module RunApi
   module Recraft
     module Resources
+      # Background removal resource.
+      # Produces a transparent cutout by removing the image background.
       class RemoveBackground
         include RunApi::Core::ResourceHelpers
 
