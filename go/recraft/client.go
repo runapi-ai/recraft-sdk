@@ -55,11 +55,8 @@ type UpscaleImage struct{ http core.HTTPClient }
 // Create submits an upscale-image task and returns immediately with a task id.
 func (r *UpscaleImage) Create(ctx context.Context, params UpscaleImageParams, opts ...option.RequestOption) (*core.TaskCreateResponse, error) {
 	body := core.CompactParams(params)
-	if body["model"] == nil {
-		return nil, core.NewError(core.ErrValidation, "model is required", 422, "", nil, nil)
-	}
-	if body["source_image_url"] == nil {
-		return nil, core.NewError(core.ErrValidation, "source_image_url is required", 422, "", nil, nil)
+	if err := core.ValidateParams(contractSchema["upscale-image"], body); err != nil {
+		return nil, err
 	}
 	requestOptions, _ := option.ResolveRequestOptions(opts...)
 	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, upscaleImagePath, body, requestOptions)
@@ -84,11 +81,8 @@ type RemoveBackground struct{ http core.HTTPClient }
 // Create submits a remove-background task and returns immediately with a task id.
 func (r *RemoveBackground) Create(ctx context.Context, params RemoveBackgroundParams, opts ...option.RequestOption) (*core.TaskCreateResponse, error) {
 	body := core.CompactParams(params)
-	if body["model"] == nil {
-		return nil, core.NewError(core.ErrValidation, "model is required", 422, "", nil, nil)
-	}
-	if body["source_image_url"] == nil {
-		return nil, core.NewError(core.ErrValidation, "source_image_url is required", 422, "", nil, nil)
+	if err := core.ValidateParams(contractSchema["remove-background"], body); err != nil {
+		return nil, err
 	}
 	requestOptions, _ := option.ResolveRequestOptions(opts...)
 	return core.PostJSON[core.TaskCreateResponse](ctx, r.http, removeBackgroundPath, body, requestOptions)

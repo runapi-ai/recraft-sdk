@@ -4,9 +4,6 @@ from __future__ import annotations
 
 from runapi.core import BaseModel, TaskResponse, optional, required
 
-UPSCALE_IMAGE_MODELS = ["recraft-crisp-upscale"]
-REMOVE_BACKGROUND_MODELS = ["recraft-remove-background"]
-
 
 class Image(BaseModel):
     url = optional(str)

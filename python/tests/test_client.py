@@ -134,7 +134,7 @@ def test_run_narrows_completed_type():
 
 def test_upscale_requires_model():
     client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model is required"):
+    with pytest.raises(ValidationError, match="model must be one of: recraft-crisp-upscale"):
         client.upscale_image.create(source_image_url="https://x/a.png")
 
 
@@ -146,11 +146,11 @@ def test_upscale_requires_source_image_url():
 
 def test_upscale_rejects_unknown_model():
     client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="Invalid model"):
+    with pytest.raises(ValidationError, match="model must be one of: recraft-crisp-upscale"):
         client.upscale_image.create(model="nope", source_image_url="https://x/a.png")
 
 
 def test_remove_background_rejects_unknown_model():
     client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="Invalid model"):
+    with pytest.raises(ValidationError, match="model must be one of: recraft-remove-background"):
         client.remove_background.create(model="nope", source_image_url="https://x/a.png")

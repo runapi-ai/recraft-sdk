@@ -7,61 +7,102 @@
 </h3>
 
 <p align="center">
-  Recraft API SDKs for JavaScript, Ruby, and Go on RunAPI.
+  Recraft API SDKs for JavaScript, Python, Ruby, Go, and Java on RunAPI.
 </p>
 
 <div align="center">
 
 [![npm](https://img.shields.io/npm/v/@runapi.ai/recraft)](https://www.npmjs.com/package/@runapi.ai/recraft)
+[![PyPI](https://img.shields.io/pypi/v/runapi-recraft)](https://pypi.org/project/runapi-recraft/)
 [![RubyGems](https://img.shields.io/gem/v/runapi-recraft)](https://rubygems.org/gems/runapi-recraft)
 [![Go Reference](https://pkg.go.dev/badge/github.com/runapi-ai/recraft-sdk/go.svg)](https://pkg.go.dev/github.com/runapi-ai/recraft-sdk/go)
+[![Maven Central](https://img.shields.io/maven-central/v/ai.runapi/runapi-recraft)](https://central.sonatype.com/artifact/ai.runapi/runapi-recraft)
 [![License](https://img.shields.io/github/license/runapi-ai/recraft-sdk)](https://github.com/runapi-ai/recraft-sdk/blob/main/LICENSE)
 
 </div>
 <br/>
 
-The recraft api SDK packages JavaScript, Ruby, and Go clients for Recraft on RunAPI. Use this recraft api SDK for text-to-image, image editing, upscales, and creative production workflows that need typed installs, JSON request bodies, task polling, and consistent RunAPI errors across services.
+The Recraft API SDK packages JavaScript, Python, Ruby, Go, and Java clients for Recraft on RunAPI. Use it for background removal and image upscale workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
 
-Recraft belongs to the Recraft catalog on RunAPI. The public model page is https://runapi.ai/models/recraft; variant pages below carry pricing, rate-limit, and commercial-usage details. The public `recraft-sdk` repository groups the JavaScript, Ruby, and Go packages for this model.
+Recraft is listed in the RunAPI model catalog at https://runapi.ai/models/recraft. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `recraft-sdk` repository groups the language packages, examples, CI, and release tags for this model.
 
 ## Install
 
 ```bash
 npm install @runapi.ai/recraft
+pip install runapi-recraft
 gem install runapi-recraft
 go get github.com/runapi-ai/recraft-sdk/go@latest
 ```
 
-## What you can build
+Gradle:
 
-- Build product imagery, creative automation, design previews, and agent image workflows with the recraft api SDK.
-- Keep one model-specific repository while installing only the language package your app needs.
-- Use `create` for submit-only jobs, `get` for status lookup, and `run` for submit-and-poll scripts.
-- Handle authentication, validation, rate limits, insufficient credits, task failures, and polling timeouts through RunAPI SDK errors.
-
-The JavaScript client exposes upscales, background removals resources, and the Ruby and Go packages mirror the same RunAPI task lifecycle.
-
-## JavaScript quick start
-
-```typescript
-import { RecraftClient } from '@runapi.ai/recraft';
-
-const client = new RecraftClient();
-
-const task = await client.upscales.create({
-  // Pass the Recraft request body documented at https://runapi.ai/docs#recraft.
-});
-
-const status = await client.upscales.get(task.id);
+```kotlin
+dependencies {
+  implementation("ai.runapi:runapi-recraft:0.1.0")
+}
 ```
 
-For short scripts, use `run` with the same JSON body to create the task and wait for completion. For web request handlers, prefer `create` plus webhook or later `get` polling so the server does not hold a worker open.
+Maven:
+
+```xml
+<dependency>
+  <groupId>ai.runapi</groupId>
+  <artifactId>runapi-recraft</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
+
+Use the Java BOM when installing multiple RunAPI Java modules:
+
+```kotlin
+dependencies {
+  implementation(platform("ai.runapi:runapi-bom:0.1.0"))
+  implementation("ai.runapi:runapi-recraft")
+}
+```
+
+## What you can build
+
+- Build apps, agent workflows, batch jobs, and production services around Recraft requests.
+- Install only the language package your app needs while keeping one model-specific repository for docs and releases.
+- Use `create` for submit-only jobs, `get` for status lookup, and `run` for submit-and-poll scripts.
+- Upload local files, URL files, or base64 files through shared RunAPI file helpers.
+- Handle validation, authentication, rate limits, insufficient credits, task failures, and polling timeouts through RunAPI SDK errors.
+
+## Java quick start
+
+```java
+import ai.runapi.recraft.RecraftClient;
+import ai.runapi.recraft.types.RemoveBackgroundParams;
+import ai.runapi.recraft.types.CompletedRemoveBackgroundResponse;
+import ai.runapi.recraft.types.RemoveBackgroundModel;
+
+RecraftClient client = RecraftClient.builder()
+    .apiKey(System.getenv("RUNAPI_API_KEY"))
+    .build();
+
+CompletedRemoveBackgroundResponse result = client.removeBackground().run(
+    RemoveBackgroundParams.builder()
+        .model(RemoveBackgroundModel.RECRAFT_REMOVE_BACKGROUND)
+        .sourceImageUrl("https://cdn.runapi.ai/public/samples/image.jpg")
+        .build()
+);
+```
+
+Java packages target Java 8 bytecode and are tested on Java 8, 11, 17, and 21. Each model artifact depends on `ai.runapi:runapi-core`, so application code normally installs only `ai.runapi:runapi-recraft`.
+
+## Task lifecycle
+
+Most media endpoints are asynchronous. `create()` submits a task and returns its id, `get(id)` fetches the latest task state, and `run(params)` creates the task and polls until it reaches a terminal state. In web request handlers, prefer `create()` plus webhook or later `get()` polling so the server does not hold a worker open.
 
 ## Repository layout
 
 - `js/` publishes `@runapi.ai/recraft`.
-- `ruby/` publishes `runapi-recraft` when RubyGems publishing resumes.
-- `go/` publishes `github.com/runapi-ai/recraft-sdk/go` and depends on `github.com/runapi-ai/core-sdk/go`.
+- `python/` publishes `runapi-recraft`.
+- `ruby/` publishes `runapi-recraft`.
+- `go/` publishes `github.com/runapi-ai/recraft-sdk/go`.
+- `java/` publishes `ai.runapi:runapi-recraft` and uses `ai.runapi:runapi-core`.
 
 ## Public links
 
@@ -75,25 +116,25 @@ For short scripts, use `run` with the same JSON body to create the task and wait
 
 ## Pricing and variants
 
-Use the most specific recraft api variant page for pricing, rate limits, and commercial usage:
+Use the most specific Recraft variant page for pricing, rate limits, and commercial usage:
 - [Crisp upscale](https://runapi.ai/models/recraft/crisp-upscale)
 - [Remove background](https://runapi.ai/models/recraft/remove-background)
 
-Default pricing link for the recraft api SDK: https://runapi.ai/models/recraft/crisp-upscale
+Default pricing link for the Recraft SDK: https://runapi.ai/models/recraft/crisp-upscale
 
-## Generated file storage
+## File storage
 
 RunAPI-generated file URLs are temporary. Download and store generated images, videos, audio, or other files in your own durable storage within 7 days; do not treat returned URLs as long-term assets.
 
 ## FAQ
 
-### Which package should I install for recraft api work?
+### Which package should I install for Recraft work?
 
-Install the model package for your language: `@runapi.ai/recraft`, `runapi-recraft`, or `github.com/runapi-ai/recraft-sdk/go`. Install core SDK packages only when you are building shared SDK infrastructure.
+Install the model package for your language: `@runapi.ai/recraft` on npm, `runapi-recraft` on PyPI, `runapi-recraft` on RubyGems, `github.com/runapi-ai/recraft-sdk/go`, or `ai.runapi:runapi-recraft`. Install core SDK packages only when you are building shared SDK infrastructure.
 
 ### Where should public links point?
 
-Primary recraft api links point to https://runapi.ai/models/recraft. Pricing and usage-policy links point to variant pages such as https://runapi.ai/models/recraft/crisp-upscale. Provider comparisons point to https://runapi.ai/providers/recraft, and broad browsing points to https://runapi.ai/models.
+Primary Recraft links point to https://runapi.ai/models/recraft. Pricing and usage-policy links point to variant pages such as https://runapi.ai/models/recraft/crisp-upscale. Provider comparisons point to https://runapi.ai/providers/recraft, and broad browsing points to https://runapi.ai/models.
 
 ## License
 

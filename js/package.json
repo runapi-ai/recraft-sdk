@@ -1,7 +1,10 @@
 {
   "name": "@runapi.ai/recraft",
+  "runapi": {
+    "slug": "recraft"
+  },
   "version": "0.2.6",
-  "description": "RunAPI Recraft SDK for JavaScript, Ruby, and Go",
+  "description": "RunAPI Recraft SDK for background removal and image upscale workflows in JavaScript, Python, Ruby, Go, and Java",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -48,7 +51,15 @@
     "sdk",
     "typescript",
     "ruby",
-    "golang"
+    "golang",
+    "java",
+    "python",
+    "maven",
+    "gradle",
+    "image-generation",
+    "text-to-image",
+    "image-api",
+    "recraft-api"
   ],
   "author": "RunAPI",
   "license": "Apache-2.0",

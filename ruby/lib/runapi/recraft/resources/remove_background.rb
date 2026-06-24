@@ -24,24 +24,12 @@ module RunApi
 
         def create(**params)
           params = compact_params(params)
-          validate_params!(params)
+          validate_contract!(CONTRACT["remove-background"], params)
           request(:post, ENDPOINT, body: params)
         end
 
         def get(id)
           request(:get, "#{ENDPOINT}/#{id}")
-        end
-
-        private
-
-        def validate_params!(params)
-          raise Core::ValidationError, "model is required" unless param(params, :model)
-          raise Core::ValidationError, "source_image_url is required" unless param(params, :source_image_url)
-
-          model = param(params, :model)
-          unless Types::REMOVE_BACKGROUND_MODELS.include?(model)
-            raise Core::ValidationError, "Invalid model: #{model}. Must be one of: #{Types::REMOVE_BACKGROUND_MODELS.join(", ")}"
-          end
         end
       end
     end

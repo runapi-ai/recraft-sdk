@@ -1,6 +1,7 @@
-import type { HttpClient, PollingOptions, RequestOptions } from '@runapi.ai/core';
-import { compactParams, ValidationError } from '@runapi.ai/core';
+import type { HttpClient, PollingOptions, RequestOptions, ActionSchema } from '@runapi.ai/core';
+import { compactParams, validateParams } from '@runapi.ai/core';
 import { pollUntilComplete } from '@runapi.ai/core/internal';
+import { contract } from '../contract_gen';
 import type { RemoveBackgroundParams, CompletedImageTaskResponse, ImageTaskResponse, TaskCreateResponse } from '../types';
 
 const ENDPOINT = '/api/v1/recraft/remove_background';
@@ -35,9 +36,7 @@ export class RemoveBackground {
    */
   async create(params: RemoveBackgroundParams, options?: RequestOptions): Promise<TaskCreateResponse> {
     const body = compactParams(params);
-    if (!body.model) throw new ValidationError('model is required');
-    if (!body.source_image_url) throw new ValidationError('source_image_url is required');
-
+    validateParams(contract['remove-background'] as ActionSchema, body as Record<string, unknown>);
     return this.http.request<TaskCreateResponse>('POST', ENDPOINT, {
       body,
       ...options,
