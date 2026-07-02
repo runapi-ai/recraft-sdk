@@ -2,7 +2,7 @@
 //
 //	client, err := recraft.NewClient(option.WithAPIKey("sk-your-api-key"))
 //	result, err := client.UpscaleImage.Run(ctx, recraft.UpscaleImageParams{
-//	    Model: recraft.ModelUpscale, ImageURL: "https://example.com/photo.jpg",
+//	    Model: recraft.ModelUpscale, ImageURL: "https://cdn.runapi.ai/public/samples/image.jpg",
 //	})
 package recraft
 

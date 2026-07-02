@@ -1,8 +1,8 @@
 # Recraft Python SDK for RunAPI
 
-The Recraft Python SDK is the language-specific package for Recraft on RunAPI. Use this recraft package for image upscale and background-removal flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in Python.
+The Recraft Python SDK is the language-specific package for Recraft on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Python.
 
-This recraft README is the Python package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the Python package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
 
 ## Install
 
@@ -19,13 +19,13 @@ client = RecraftClient()  # reads RUNAPI_API_KEY, or pass api_key="sk-..."
 
 task = client.upscale_image.create(
     model="recraft-crisp-upscale",
-    source_image_url="https://example.com/source.jpg",
+    source_image_url="https://cdn.runapi.ai/public/samples/image.jpg",
 )
 status = client.upscale_image.get(task.id)
 
 removed = client.remove_background.create(
     model="recraft-remove-background",
-    source_image_url="https://example.com/source.jpg",
+    source_image_url="https://cdn.runapi.ai/public/samples/image.jpg",
 )
 ```
 
@@ -34,7 +34,7 @@ Use `create` when you want to submit a task and return quickly, `get` when you n
 ```python
 result = client.upscale_image.run(
     model="recraft-crisp-upscale",
-    source_image_url="https://example.com/source.jpg",
+    source_image_url="https://cdn.runapi.ai/public/samples/image.jpg",
 )
 print(result.images[0].url)
 ```

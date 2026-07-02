@@ -1,8 +1,8 @@
-# Recraft API Ruby SDK for RunAPI
+# Recraft Ruby SDK for RunAPI
 
-The recraft api Ruby SDK is the language-specific package for Recraft on RunAPI. Use this recraft api package for text-to-image, image editing, and creative production flows when your application needs JSON request bodies, task status lookup, and consistent RunAPI errors in Ruby.
+The Recraft Ruby SDK is the language-specific package for Recraft on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby.
 
-This recraft api README is the Ruby package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the Ruby package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
 
 ## Install
 
@@ -16,10 +16,10 @@ gem install runapi-recraft
 require "runapi-recraft"
 
 client = RunApi::Recraft::Client.new
-task = client.upscales.create(
+task = client.upscale_image.create(
   # Pass the Recraft JSON request body from https://runapi.ai/docs#recraft.
 )
-status = client.upscales.get(task.id)
+status = client.upscale_image.get(task.id)
 ```
 
 Use `create` when you want to submit a task and return quickly, `get` when you need the latest task state, and `run` when a script should create and poll until completion. In web request handlers, prefer `create` plus webhook or later `get` polling so a worker is not held open.
@@ -28,7 +28,7 @@ RunAPI-generated file URLs are temporary. Download and store generated images, v
 
 ## Language notes
 
-Use Ruby keyword arguments and the `RunApi::Recraft` error classes when building image jobs, Rails workers, or scripts. The available resources include upscales, and background removals. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
+Use Ruby keyword arguments and the `RunApi::Recraft` error classes when building image jobs, Rails workers, or scripts. The available resources are `upscale_image` and `remove_background`. Keep `RUNAPI_API_KEY` in the environment or your secret manager; never commit API keys or callback secrets.
 
 ## Links
 

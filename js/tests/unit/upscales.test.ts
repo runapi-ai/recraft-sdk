@@ -18,14 +18,14 @@ describe('UpscaleImage', () => {
     const result = await upscaleImage.create({
       model: 'recraft-crisp-upscale',
       source_image_url: 'https://cdn.runapi.ai/public/samples/input.png',
-      callback_url: 'https://example.com/callback',
+      callback_url: 'https://your-domain.com/api/callback',
     });
 
     expect(mockHttp.request).toHaveBeenCalledWith('POST', '/api/v1/recraft/upscale_image', {
       body: {
         model: 'recraft-crisp-upscale',
         source_image_url: 'https://cdn.runapi.ai/public/samples/input.png',
-        callback_url: 'https://example.com/callback',
+        callback_url: 'https://your-domain.com/api/callback',
       },
     });
     expect(result).toEqual(mockResponse);

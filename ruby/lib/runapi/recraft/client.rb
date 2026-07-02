@@ -11,12 +11,12 @@ module RunApi
     #
     #   upscaled = client.upscale_image.run(
     #     model: "recraft-crisp-upscale",
-    #     source_image_url: "https://example.com/photo.jpg"
+    #     source_image_url: "https://cdn.runapi.ai/public/samples/image.jpg"
     #   )
     #
     #   cutout = client.remove_background.run(
     #     model: "recraft-remove-background",
-    #     source_image_url: "https://example.com/photo.jpg"
+    #     source_image_url: "https://cdn.runapi.ai/public/samples/image.jpg"
     #   )
     class Client < RunApi::Core::Client
       # @return [Resources::UpscaleImage] AI-powered image upscaling operations.
