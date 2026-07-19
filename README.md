@@ -7,7 +7,7 @@
 </h3>
 
 <p align="center">
-  Recraft API SDKs for JavaScript, Python, Ruby, Go, and Java on RunAPI.
+  Recraft API SDKs for JavaScript, Python, Ruby, Go, Java, and PHP on RunAPI.
 </p>
 
 <div align="center">
@@ -22,9 +22,9 @@
 </div>
 <br/>
 
-The Recraft API SDK packages JavaScript, Python, Ruby, Go, and Java clients for Recraft on RunAPI. Use it for background removal and image upscale workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
+The Recraft API SDK packages JavaScript, Python, Ruby, Go, Java, and PHP clients for Recraft on RunAPI. Use it for background removal and image upscale workflows when your app needs typed request builders, predictable task polling, file upload helpers, account helpers, and consistent RunAPI errors.
 
-Recraft is listed in the RunAPI model catalog at https://runapi.ai/models/recraft. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `recraft-sdk` repository groups the language packages, examples, CI, and release tags for this model.
+Recraft is listed in the RunAPI model catalog at https://runapi.ai/models/recraft. Variant pages below carry pricing, rate-limit, and commercial-usage details. The public `recraft-sdk` repository groups the non-PHP language packages, examples, CI, and release tags for this model. The PHP package is released from a split Composer repository.
 
 ## Install
 
@@ -39,7 +39,7 @@ Gradle:
 
 ```kotlin
 dependencies {
-  implementation("ai.runapi:runapi-recraft:0.1.0")
+  implementation("ai.runapi:runapi-recraft:0.1.1")
 }
 ```
 
@@ -49,7 +49,7 @@ Maven:
 <dependency>
   <groupId>ai.runapi</groupId>
   <artifactId>runapi-recraft</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
 </dependency>
 ```
 
@@ -57,10 +57,12 @@ Use the Java BOM when installing multiple RunAPI Java modules:
 
 ```kotlin
 dependencies {
-  implementation(platform("ai.runapi:runapi-bom:0.1.0"))
+  implementation(platform("ai.runapi:runapi-bom:0.1.7"))
   implementation("ai.runapi:runapi-recraft")
 }
 ```
+
+The PHP package is published from the split Composer repository as `runapi-ai/recraft`; see https://github.com/runapi-ai/recraft-php for PHP install and examples.
 
 ## What you can build
 
@@ -110,6 +112,7 @@ Most media endpoints are asynchronous. `create()` submits a task and returns its
 - SDK docs: https://runapi.ai/docs#sdk-recraft
 - Product docs: https://runapi.ai/docs#recraft
 - SDK repository: https://github.com/runapi-ai/recraft-sdk
+- PHP package repository: https://github.com/runapi-ai/recraft-php
 - Skill repository: https://github.com/runapi-ai/recraft
 - Provider comparison: https://runapi.ai/providers/recraft
 - Full catalog: https://runapi.ai/models
@@ -130,7 +133,7 @@ RunAPI-generated file URLs are temporary. Download and store generated images, v
 
 ### Which package should I install for Recraft work?
 
-Install the model package for your language: `@runapi.ai/recraft` on npm, `runapi-recraft` on PyPI, `runapi-recraft` on RubyGems, `github.com/runapi-ai/recraft-sdk/go`, or `ai.runapi:runapi-recraft`. Install core SDK packages only when you are building shared SDK infrastructure.
+Install the model package for your language: `@runapi.ai/recraft` on npm, `runapi-recraft` on PyPI, `runapi-recraft` on RubyGems, `github.com/runapi-ai/recraft-sdk/go`, `ai.runapi:runapi-recraft` on Maven Central, or `runapi-ai/recraft` on Packagist. Install core SDK packages only when you are building shared SDK infrastructure.
 
 ### Where should public links point?
 
