@@ -13,7 +13,7 @@ gem install runapi-recraft
 ## Quick start
 
 ```ruby
-require "runapi-recraft"
+require "runapi/recraft"
 
 client = RunApi::Recraft::Client.new
 task = client.upscale_image.create(

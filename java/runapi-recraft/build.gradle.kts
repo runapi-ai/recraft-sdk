@@ -3,6 +3,8 @@ plugins {
   `maven-publish`
 }
 
+extra["runapiSlug"] = "recraft"
+
 description = "RunAPI Recraft Java SDK for Recraft workflows."
 
 java {
@@ -11,7 +13,7 @@ java {
 }
 
 dependencies {
-  api("ai.runapi:runapi-core:0.1.1")
+  api("ai.runapi:runapi-core:0.2.6")
 
   testImplementation(platform("org.junit:junit-bom:5.10.3"))
   testImplementation("org.junit.jupiter:junit-jupiter")
