@@ -1,4 +1,4 @@
-import type { AsyncTaskStatus } from '@runapi.ai/core';
+import type { AsyncTaskStatus, TaskBillingResponse, TaskResponse } from '@runapi.ai/core';
 
 /** Crisp upscaling model that enhances resolution while preserving detail. */
 export type RecraftUpscaleImageModel = 'recraft-crisp-upscale';
@@ -24,7 +24,7 @@ export interface RemoveBackgroundParams {
 }
 
 /** Acknowledgement returned by `create()` before the task starts processing. */
-export interface TaskCreateResponse {
+export interface TaskCreateResponse extends TaskBillingResponse {
   id: string;
 }
 
@@ -34,7 +34,7 @@ export interface Image {
 }
 
 /** Async image task result shared by upscale and background removal operations. */
-export interface ImageTaskResponse {
+export interface ImageTaskResponse extends TaskResponse {
   id: string;
   status: AsyncTaskStatus;
   /** Processed image files; populated once the task completes. */
