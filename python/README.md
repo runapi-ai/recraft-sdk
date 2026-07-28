@@ -2,7 +2,7 @@
 
 The Recraft Python SDK is the language-specific package for Recraft on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Python.
 
-This README is the Python package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the Python package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs/api/recraft/remove-background; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Install
 
@@ -50,8 +50,8 @@ Pass parameters as keyword arguments and catch the `runapi.recraft` error classe
 ## Links
 
 - Model page: https://runapi.ai/models/recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
-- Product docs: https://runapi.ai/docs#recraft
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
 - Pricing and rate limits: https://runapi.ai/models/recraft/crisp-upscale
 - Provider comparison: https://runapi.ai/providers/recraft
 - Full catalog: https://runapi.ai/models

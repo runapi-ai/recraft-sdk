@@ -4,7 +4,7 @@
 
 The Recraft Java SDK is the language-specific package for Recraft on RunAPI. Use it when your Java application needs typed builders, strict request validation, task status lookup, local polling helpers, file uploads, account helpers, and consistent RunAPI errors for Recraft workflows.
 
-This README is the Java package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the Java package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs/api/recraft/remove-background; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Requirements
 
@@ -173,8 +173,8 @@ try {
 ## Links
 
 - Model page: https://runapi.ai/models/recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
-- Product docs: https://runapi.ai/docs#recraft
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
 - Pricing and rate limits: https://runapi.ai/models/recraft/crisp-upscale
 - Full catalog: https://runapi.ai/models
 - Repository: https://github.com/runapi-ai/recraft-sdk

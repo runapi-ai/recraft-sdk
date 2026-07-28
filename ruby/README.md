@@ -2,7 +2,7 @@
 
 The Recraft Ruby SDK is the language-specific package for Recraft on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in Ruby.
 
-This README is the Ruby package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the Ruby package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs/api/recraft/remove-background; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Install
 
@@ -17,7 +17,7 @@ require "runapi/recraft"
 
 client = RunApi::Recraft::Client.new
 task = client.upscale_image.create(
-  # Pass the Recraft JSON request body from https://runapi.ai/docs#recraft.
+  # Pass the Recraft JSON request body from https://runapi.ai/docs/api/recraft/remove-background.
 )
 status = client.upscale_image.get(task.id)
 ```
@@ -33,8 +33,8 @@ Use Ruby keyword arguments and the `RunApi::Recraft` error classes when building
 ## Links
 
 - Model page: https://runapi.ai/models/recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
-- Product docs: https://runapi.ai/docs#recraft
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
 - Pricing and rate limits: https://runapi.ai/models/recraft/crisp-upscale
 - Provider comparison: https://runapi.ai/providers/recraft
 - Full catalog: https://runapi.ai/models

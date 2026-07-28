@@ -2,7 +2,7 @@
 
 The Recraft JavaScript SDK is the language-specific package for Recraft on RunAPI. Use this package for image generation, image editing, and creative production workflows when your application needs request bodies, task status lookup, and consistent RunAPI errors in JavaScript.
 
-This README is the JavaScript package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs#recraft; for SDK docs, use https://runapi.ai/docs#sdk-recraft.
+This README is the JavaScript package guide inside the public `recraft-sdk` repository. For the repository overview, start at `../README.md`; for model details, use https://runapi.ai/models/recraft; for API reference, use https://runapi.ai/docs/api/recraft/remove-background; for SDK docs, use https://runapi.ai/docs/resources/sdks.
 
 ## Install
 
@@ -17,7 +17,7 @@ import { RecraftClient } from '@runapi.ai/recraft';
 
 const client = new RecraftClient();
 const task = await client.upscaleImage.create({
-  // Pass the Recraft JSON request body from https://runapi.ai/docs#recraft.
+  // Pass the Recraft JSON request body from https://runapi.ai/docs/api/recraft/remove-background.
 });
 const status = await client.upscaleImage.get(task.id);
 ```
@@ -33,8 +33,8 @@ Use the TypeScript types in `src/types.ts` and the resource classes under `src/r
 ## Links
 
 - Model page: https://runapi.ai/models/recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
-- Product docs: https://runapi.ai/docs#recraft
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
 - Pricing and rate limits: https://runapi.ai/models/recraft/crisp-upscale
 - Provider comparison: https://runapi.ai/providers/recraft
 - Full catalog: https://runapi.ai/models

@@ -59,8 +59,8 @@ const result = await client.upscaleImage.run({
 ## Routing
 
 - Model page: https://runapi.ai/models/recraft
-- Product docs: https://runapi.ai/docs#recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
+- SDK docs: https://runapi.ai/docs/resources/sdks
 - SDK repository: https://github.com/runapi-ai/recraft-sdk
 - Pricing and rate limits: https://runapi.ai/models/recraft/crisp-upscale
 - Provider comparison: https://runapi.ai/providers/recraft

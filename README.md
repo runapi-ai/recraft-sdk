@@ -109,8 +109,8 @@ Most media endpoints are asynchronous. `create()` submits a task and returns its
 ## Public links
 
 - Model page: https://runapi.ai/models/recraft
-- SDK docs: https://runapi.ai/docs#sdk-recraft
-- Product docs: https://runapi.ai/docs#recraft
+- SDK docs: https://runapi.ai/docs/resources/sdks
+- Product docs: https://runapi.ai/docs/api/recraft/remove-background
 - SDK repository: https://github.com/runapi-ai/recraft-sdk
 - PHP package repository: https://github.com/runapi-ai/recraft-php
 - Skill repository: https://github.com/runapi-ai/recraft
