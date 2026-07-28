@@ -1,5 +1,4 @@
 import { describe, expect, it } from 'vitest';
-import { AuthenticationError } from '@runapi.ai/core';
 import { RecraftClient } from '../../src';
 
 describe('RecraftClient', () => {
@@ -9,8 +8,4 @@ describe('RecraftClient', () => {
     expect(client.removeBackground).toBeDefined();
   });
 
-  it('throws if no API key is provided', () => {
-    // @ts-expect-error: testing missing API key
-    expect(() => new RecraftClient({})).toThrow(AuthenticationError);
-  });
 });

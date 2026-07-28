@@ -1,5 +1,7 @@
 package recraft
 
+import "github.com/runapi-ai/core-sdk/go/core"
+
 // UpscaleImageModel selects the upscaling engine. See [ModelUpscale].
 type UpscaleImageModel string
 
@@ -20,6 +22,7 @@ type Image struct {
 
 // AsyncTaskResponse carries the task ID, lifecycle status, and error for all Recraft async operations.
 type AsyncTaskResponse struct {
+	core.TaskBillingFacts
 	ID     string `json:"id"`
 	Status string `json:"status"`
 	Error  string `json:"error,omitempty"`
