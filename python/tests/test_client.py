@@ -81,8 +81,7 @@ def test_upscale_create_posts_compacted_body():
             "post",
             "/api/v1/recraft/upscale_image",
             {"model": "recraft-crisp-upscale", "source_image_url": "https://x/a.png"},
-        ),
-    ]
+        )]
     assert isinstance(result, ImageTaskResponse)
 
 
@@ -105,8 +104,7 @@ def test_remove_background_create_posts_compacted_body():
             "post",
             "/api/v1/recraft/remove_background",
             {"model": "recraft-remove-background", "source_image_url": "https://x/a.png"},
-        ),
-    ]
+        )]
 
 
 def test_remove_background_get_fetches_by_id():
@@ -119,7 +117,7 @@ def test_remove_background_get_fetches_by_id():
 def test_run_narrows_completed_type():
     fake = FakeHttp(
         {"id": "t1", "status": "pending"},
-        {"id": "t1", "status": "completed", "images": [{"url": "https://x/y.png"}]},
+        {"id": "t1", "status": "completed", "usage": {"cost": 0.05}, "images": [{"url": "https://x/y.png"}]},
     )
     client = RecraftClient(api_key="k", http_client=fake)
     result = client.upscale_image.run(
