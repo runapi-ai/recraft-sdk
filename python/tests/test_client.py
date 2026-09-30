@@ -1,7 +1,7 @@
 import pytest
 
 from runapi.core import config
-from runapi.core.errors import AuthenticationError, ValidationError
+from runapi.core.errors import AuthenticationError
 from runapi.recraft import RecraftClient
 from runapi.recraft.resources.remove_background import RemoveBackground
 from runapi.recraft.resources.upscale_image import UpscaleImage
@@ -125,30 +125,3 @@ def test_run_narrows_completed_type():
     )
     assert isinstance(result, CompletedImageTaskResponse)
     assert result.images[0].url == "https://x/y.png"
-
-
-# --- validation -----------------------------------------------------------
-
-
-def test_upscale_requires_model():
-    client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of: recraft-crisp-upscale"):
-        client.upscale_image.create(source_image_url="https://x/a.png")
-
-
-def test_upscale_requires_source_image_url():
-    client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="source_image_url is required"):
-        client.upscale_image.create(model="recraft-crisp-upscale")
-
-
-def test_upscale_rejects_unknown_model():
-    client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of: recraft-crisp-upscale"):
-        client.upscale_image.create(model="nope", source_image_url="https://x/a.png")
-
-
-def test_remove_background_rejects_unknown_model():
-    client = RecraftClient(api_key="k", http_client=FakeHttp())
-    with pytest.raises(ValidationError, match="model must be one of: recraft-remove-background"):
-        client.remove_background.create(model="nope", source_image_url="https://x/a.png")

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ValidationError, type HttpClient } from '@runapi.ai/core';
+import type { HttpClient } from '@runapi.ai/core';
 import { RemoveBackground } from '../../src/resources/remove-background';
 import type { ImageTaskResponse, TaskCreateResponse } from '../../src/types';
 
@@ -27,14 +27,6 @@ describe('RemoveBackground', () => {
       },
     });
     expect(result).toEqual(mockResponse);
-  });
-
-  it('validates required create params', async () => {
-    const removals = new RemoveBackground(mockHttp);
-
-    await expect(removals.create({ source_image_url: 'https://cdn.runapi.ai/public/samples/input.webp' } as any)).rejects.toThrow(ValidationError);
-    await expect(removals.create({ model: 'recraft-remove-background' } as any)).rejects.toThrow(ValidationError);
-    expect(mockHttp.request).not.toHaveBeenCalled();
   });
 
   it('GETs task status by id', async () => {

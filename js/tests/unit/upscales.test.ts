@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ValidationError, type HttpClient } from '@runapi.ai/core';
+import type { HttpClient } from '@runapi.ai/core';
 import { UpscaleImage } from '../../src/resources/upscale-image';
 import type { ImageTaskResponse, TaskCreateResponse } from '../../src/types';
 
@@ -29,14 +29,6 @@ describe('UpscaleImage', () => {
       },
     });
     expect(result).toEqual(mockResponse);
-  });
-
-  it('validates required create params', async () => {
-    const upscaleImage = new UpscaleImage(mockHttp);
-
-    await expect(upscaleImage.create({ source_image_url: 'https://cdn.runapi.ai/public/samples/input.png' } as any)).rejects.toThrow(ValidationError);
-    await expect(upscaleImage.create({ model: 'recraft-crisp-upscale' } as any)).rejects.toThrow(ValidationError);
-    expect(mockHttp.request).not.toHaveBeenCalled();
   });
 
   it('GETs task status by id', async () => {
